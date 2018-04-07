@@ -1,0 +1,32 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/detail/detail",
+    "pages/main/main"
+  ],
+  "window": {
+    "navigationBarTitleText": "TabBar",
+    "navigationBarBackgroundColor": "#F60",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#ddd",
+    "selectedColor": "#3cc51f",
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/icon.png",
+        "selectedIconPath": "images/icon.png",
+        "text": "index"
+      },
+      {
+        "pagePath": "pages/detail/detail",
+        "iconPath": "images/icon.png",
+        "selectedIconPath": "images/icon.png",
+        "text": "detail"
+      }
+    ]
+  }
+}
