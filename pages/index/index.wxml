@@ -1,14 +1,88 @@
 <view class="page">
     
-    <view class="page__bd page__bd_spacing">
+    
        
+       
+      <view class="weui-flex-1">
+            
+            <view><view class="weui-flex__item"><image bindtap='bindViewTap' src='../../images/search.png' class='search'></image></view></view>
+            <view class="weui-flex__item"><view class="placeholder"><image class='userinfo-avatar' src='{{userInfo.avatarUrl}}'></image></view></view>
+             <view><view class="weui-flex__item"><image src='../../images/other.png' class='icons'></image></view></view>
+        </view> 
        
 
-        <view class="weui-flex">
-            <view><view class="placeholder"><image src='../../images/other.png' class='icons'></image></view></view>
-            <view class="weui-flex__item"><view class="placeholder"><image class='userinfo-avatar' src='{{userInfo.avatarUrl}}'></image></view></view>
-            <view><view class="placeholder"><image bindtap='bindViewTap' src='../../images/search.png' class='icons'></image></view></view>
-        </view>
         
-    </view>
+          
+            <!--firstgroup-->
+            <view class = "weui-flex">
+              <view class="weui-flex__item" >
+              
+                <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+                    
+                    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                        <view class="weui-media-box__title">Group1</view>
+                        <view class="weui-media-box__desc">群组描述</view>
+                    </view>
+                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg" wx:for="{{listInfo}}"  data-current="{{index}}" wx:key="this" bindtap="chooseImg">
+                        <image class="box-image" hidden='{{curIdx===index}}' src="{{item.imgUrl}}"></image>
+                        <image class="box-image" hidden='{{curIdx!==index}}' src="{{item.curUrl}}"></image>
+                        <view class="weui-media-box__desc">22/4/2018</view>
+                    </view>
+                </navigator>
+                
+                </view>
+            </view>
+            
+                <!--secondgroup-->
+            <view class="weui-flex">
+              <view class="weui-flex__item" >
+                <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+                    
+                    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                        <view class="weui-media-box__title">Group2</view>
+                        <view class="weui-media-box__desc">群组描述</view>
+                    </view>
+                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg" wx:for="{{listInfo}}"  data-current="{{index}}" wx:key="this" bindtap="chooseImg">
+                        <image class="box-image" hidden='{{curIdx===index}}' src="{{item.imgUrl}}"></image>
+                        <image class="box-image" hidden='{{curIdx!==index}}' src="{{item.curUrl}}"></image>
+                        <view class="weui-media-box__desc">22/4/2018</view>
+                    </view>
+                </navigator>
+              </view>
+            </view>
+
+            <!--thirdgroup-->
+            <view class="weui-flex">
+              <view class="weui-flex__item" >
+                <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+                    
+                    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                        <view class="weui-media-box__title">Group3</view>
+                        <view class="weui-media-box__desc">群组描述</view>
+                    </view>
+              <view class="weui-media-box__hd weui-media-box__hd_in-appmsg" wx:for="{{listInfo}}"  data-current="{{index}}" wx:key="this" bindtap="chooseImg">
+                        <image class="box-image" hidden='{{curIdx===index}}' src="{{item.imgUrl}}"></image>
+                        <image class="box-image" hidden='{{curIdx!==index}}' src="{{item.curUrl}}"></image>
+                        <view class="weui-media-box__desc">22/4/2018</view>
+                    </view>
+                </navigator>
+              </view>
+            </view>
+
+            <!--addgroup-->
+            <view class="weui-flex">
+              <view class="weui-flex__item" >
+                <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                        <image class="weui-media-box__thumb" src="{{icon60}}" />
+                    </view>
+                    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                        <view class="weui-media-box__title">添加群组</view>
+                        <view class="weui-media-box__desc">群组描述</view>
+                    </view>
+                </navigator>
+              </view>
+            </view>
+        
+
 </view>

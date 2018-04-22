@@ -12,13 +12,32 @@ Page({
     b: 2,
     c: 3,
     W: '1248124',
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    //图片切换
+    listInfo: [
+      
+      {
+        //title: '效果二',
+        imgUrl: '../../images/like.png',
+        curUrl: '../../images/like_fill.png',
+      },
+      
+    ],
+    imgHoverIndex: 0
   },
   //事件处理函数
   bindViewTap: function(){
     wx.navigateTo({
       url: '../search/searchbar',
     })
+  },
+  //图片切换
+  chooseImg: function (e) {
+    this.setData({
+      curIdx: e.currentTarget.dataset.current
+    })
+    //  console.log(e)
+    //  console.log(this.data.curIdx) 
   },
   onLoad: function () {
     if (app.globalData.userInfo) {
