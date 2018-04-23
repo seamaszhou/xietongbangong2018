@@ -43,3 +43,9 @@ page{background-color: #F0F0F2;}
 .box-text{
     font-size: 28rpx;
 }
+
+.plus{
+  width: 100rpx;
+  height: 100rpx;
+  padding-left: 40%;
+}
