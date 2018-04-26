@@ -1,0 +1,18 @@
+<view class="page">
+    
+    
+       
+       
+      <view class="weui-flex-1">
+            
+            <view><view class="weui-flex__item"><image bindtap='return' src='../../images/return.png' class='search'></image></view></view>
+            
+        </view> 
+       
+
+
+
+            
+   
+
+</view>

@@ -34,14 +34,9 @@ Page({
     imgHoverIndex: 0
   },
   //事件处理函数
-  bindViewTap: function(){
+  return: function(){
     wx.navigateTo({
-      url: '../search/searchbar',
-    })
-  },
-  notif: function(){
-    wx.navigateTo({
-      url: '../notification/notif',
+      url: '../index/index',
     })
   },
   //图片切换
