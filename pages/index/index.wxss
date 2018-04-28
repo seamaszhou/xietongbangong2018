@@ -23,9 +23,28 @@
   border-radius: 50%;
 
 }
+
+.userinfo-avatar2 {
+  width: 50rpx;
+  height: 50rpx;
+  padding-left: 10rpx;
+  border-radius: 50%;
+
+}
+
+.weui-media-box__desc{padding-left: 500rpx;}
+.Gname{
+color: #34495E;
+font-weight:300;
+font-size: medium;
+}
 page{background-color: #F0F0F2;}
 
+/*收藏*/
+.likebt{ width: 80rpx;
+  height: 80rpx;
 
+  }
 /*.box_list{
     display: flex;
     flex-direction: column;
@@ -49,7 +68,9 @@ page{background-color: #F0F0F2;}
   height: 100rpx;
   padding-left: 40%;
 }
-
+.desctext{font-size: small;
+          font-family: Arial, Helvetica, sans-serif;
+          color: #34495E;}
 
 /*drag*/
 .container {
@@ -71,3 +92,91 @@ page{background-color: #F0F0F2;}
 .maind{background: #fff; border:1px dashed #efefef;}
 .mainend{position: static; opacity: 1;}
 .dragtitle{padding-left: 50rpx;padding-top: 50rpx;}
+
+/*add group*/
+.show-btn {
+  margin-top: 100rpx;
+  color: #22cc22;
+}
+
+.modal-mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+  z-index: 9000;
+  color: #fff;
+}
+
+.modal-dialog {
+  width: 540rpx;
+  overflow: hidden;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  z-index: 9999;
+  background: #f9f9f9;
+  margin: -180rpx 105rpx;
+  border-radius: 36rpx;
+}
+
+.modal-title {
+  padding-top: 50rpx;
+  font-size: 36rpx;
+  color: #030303;
+  text-align: center;
+  font-weight: 500;
+}
+
+.modal-content {
+  padding: 50rpx 32rpx;
+}
+
+.modal-input {
+  display: flex;
+  
+  
+  font-size: 28rpx;
+}
+
+
+.input {
+  width: 100%;
+  height: 82rpx;
+  font-size: 28rpx;
+  line-height: 28rpx;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  color: #333;
+}
+
+input-holder {
+  color: #666;
+  font-size: 28rpx;
+}
+
+.modal-footer {
+  display: flex;
+  flex-direction: row;
+  height: 86rpx;
+  border-top: 1px solid #dedede;
+  font-size: 34rpx;
+  line-height: 86rpx;
+}
+
+.btn-cancel {
+  width: 50%;
+  color: #666;
+  text-align: center;
+  border-right: 1px solid #dedede;
+}
+
+.btn-confirm {
+  width: 50%;
+  color: #ec5300;
+  text-align: center;
+}

@@ -1,14 +1,17 @@
 //index.js
 //获取应用实例
 const app = getApp()
-
+var ns = 0;
 var x, y, x1, y1, x2, y2, index, currindex, n, yy;
-var arr1 = [{ desc: '1234', content: "group1", id: 1 }, { desc: '123', content: 'group2', id: 2 }, { desc: '123', content: 'group3', id: 3 }, { desc: '123', content: 'group4', id: 4 }, { desc: '123',content: 'group5', id: 5 }];
+var arr1 = [{ desc: '群组描述', content: "Group Name", id: 1 }, { desc: '群组描述2', content: 'Group Name', id: 2 }, { desc: '群组描述3', content: 'Group Name', id: 3 }];
+
 Page({
   data: {
+    /*modal*/
+    showModal: false,
     /*drag*/
     mainx: 0,
-    content: [{ desc: '1234', content: 'group1', id: 1 }, { desc: '123', content: 'group2', id: 2 }, { desc: '123', content: 'group3', id: 3 }, { desc: '123', content: 'group4', id: 4 }, { desc: '123',content: 'group5', id: 5 }],
+    content: [{ desc: '群组描述', content: 'Group Name', id: 1 }, { desc: '群组描述2', content: 'Group Name', id: 2 }, { desc: '群组描述3', content: 'Group Name', id: 3 }],
     start: { x: 0, y: 0 },
     /*drag*/
     time: (new Date()).toString(),
@@ -20,6 +23,7 @@ Page({
     c: 3,
     W: '1248124',
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    
     //图片切换
     listInfo: [
       
@@ -108,8 +112,6 @@ Page({
       start: { x: x2, y: y2 }
     })
   },
-
-
   moveend: function () {
     if (y2 != 0) {
       var arr = [];
@@ -143,7 +145,56 @@ Page({
         opacity: 1
       })
     }
+  },
+  /*添加小组*/
+  addgroup: function(e){
+  let arrid = this.arr1.id
+
+  },
+  /*添加按钮弹窗*/
+  openPop : function(){
+    wx.showModal({
+      title:'创建群组',
+      content:'输入群组名称',
+      confirmText:'确定',
+      cancelText:"取消"
+    })
+  },
+  /**
+   * 弹窗
+   */
+  showDialogBtn: function () {
+    this.setData({
+      showModal: true
+    })
+  },
+  /**
+   * 弹出框蒙层截断touchmove事件
+   */
+  preventTouchMove: function () {
+  },
+  /**
+   * 隐藏模态对话框
+   */
+  hideModal: function () {
+    this.setData({
+      showModal: false
+    });
+  },
+  /**
+   * 对话框取消按钮点击事件
+   */
+  onCancel: function () {
+    this.hideModal();
+  },
+  /**
+   * 对话框确认按钮点击事件
+   */
+  onConfirm: function () {
+    this.hideModal();
   }
+
+  
 
 
 })
