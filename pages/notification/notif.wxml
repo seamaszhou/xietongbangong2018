@@ -6,8 +6,17 @@
       <view class="weui-flex-1">
             
             <view><view class="weui-flex__item"><image bindtap='return' src='../../images/return.png' class='search'></image></view></view>
-            
-        </view> 
+        
+            <view><view class="weui-flex__item"><text class='centraltitle'>Notification</text></view></view>
+        
+             
+      </view> 
+
+      <view class="placeholder"><image bindtap='' class='userinfo-avatar' src='{{userInfo.avatarUrl}}'></image><view class="weui-badge weui-badge_dot" style="margin-left: 5px;margin-right: 5px;"></view><text class='notice'>seamas zhou 在小程序上添加了'一张图片'</text></view>
+
+      <view class="placeholder"><image bindtap='' class='userinfo-avatar' src='{{userInfo.avatarUrl}}'></image><view class="weui-badge weui-badge_dot" style="margin-left: 5px;margin-right: 5px;"></view><text class='notice'>seamas zhou 在小程序上添加了'第二张图片'</text></view>
+      
+
        
 
 
