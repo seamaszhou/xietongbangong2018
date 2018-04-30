@@ -96,6 +96,7 @@ Page({
   movestart: function (e) {
     currindex = e.target.dataset.index;
     x = e.touches[0].clientX;
+    console.log(x);
     y = e.touches[0].clientY;
     x1 = e.currentTarget.offsetLeft;
     y1 = e.currentTarget.offsetTop;
@@ -106,6 +107,7 @@ Page({
     yy = e.currentTarget.offsetTop;
     x2 = e.touches[0].clientX - x + x1;
     y2 = e.touches[0].clientY - y + y1;
+    console.log(x2);
     this.setData({
       mainx: currindex,
       opacity: 0.7,
@@ -128,17 +130,16 @@ Page({
       if (y2 > (52 * (nx - 1) + nx * 2 - 26)) {
         n = nx;
       }
-      console.log(arr);
-      console.log(arr1)
+      
       arr.splice((currindex - 1), 1);
       arr.splice((n - 1), 0, arr1[currindex - 1]);
       arr1 = [];
       for (var m = 0; m < this.data.content.length; m++) {
-        console.log(arr[m]);
+       
         arr[m].id = m + 1;
         arr1.push(arr[m]);
       }
-      // console.log(arr1);
+     
       this.setData({
         mainx: "",
         content: arr,
@@ -147,10 +148,6 @@ Page({
     }
   },
   /*添加小组*/
-  addgroup: function(e){
-  let arrid = this.arr1.id
-
-  },
   /*添加按钮弹窗*/
   openPop : function(){
     wx.showModal({
