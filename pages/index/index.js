@@ -7,6 +7,10 @@ var arr1 = [{ desc: '群组描述', content: "Group Name", id: 1 }, { desc: '群
 
 Page({
   data: {
+    /*search*/
+    inputShowed : false,
+    inputValue:"",
+    showSearch:false,
     /*modal*/
     showModal: false,
     /*drag*/
@@ -165,6 +169,21 @@ Page({
       showModal: true
     })
   },
+  showSearchBtn: function () {
+    this.setData({
+      showSearch: true,
+      
+    })
+  },
+  hideSearchBtn: function () {
+    this.setData({
+      showSearch: false,
+
+    })
+  },
+ onHide: function(){
+   this.hideSearchBtn();
+ },
   /**
    * 弹出框蒙层截断touchmove事件
    */
@@ -189,6 +208,29 @@ Page({
    */
   onConfirm: function () {
     this.hideModal();
+  }
+  ,
+  /*搜索框 */
+  showInput: function(){
+    this.setData({
+      inputShowed:true
+    });
+  },
+      hideInput: function () {
+    this.setData({
+      inputVal: "",
+      inputShowed: false
+    });
+  },
+  clearInput: function () {
+    this.setData({
+      inputVal: ""
+    });
+  },
+  inputTyping: function (e) {
+    this.setData({
+      inputVal: e.detail.value
+    });
   }
 
   

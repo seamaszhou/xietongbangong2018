@@ -13,8 +13,8 @@
   height: 80rpx;
 }
 .search{
-  width: 70rpx;
-  height: 70rpx;
+  width: 65rpx;
+  height: 65rpx;
 }
 .userinfo-avatar {
   width: 80rpx;
@@ -38,7 +38,8 @@ color: #34495E;
 font-weight:300;
 font-size: medium;
 }
-page{background-color: #F0F0F2;}
+page{background-color: #ecf0f1;
+}
 
 /*收藏*/
 .likebt{ width: 80rpx;
@@ -179,4 +180,29 @@ input-holder {
   width: 50%;
   color: #ec5300;
   text-align: center;
+}
+
+.post {
+    float: right;
+    background-color: white;
+    position: fixed;
+    bottom: 20px;
+    right: 10px;  
+    box-shadow: -0.5px 0.5px 1px 0.5px #34495e ;
+    border-radius: 500px;
+    
+    width: 100rpx;
+  height: 100rpx;
+}
+
+/*search*/
+.searchbar-result{
+    margin-top: 0;
+    font-size: 14px;
+}
+.searchbar-result:before{
+    display: none;
+}
+.weui-cell{
+    padding: 12px 15px 12px 35px;
 }
