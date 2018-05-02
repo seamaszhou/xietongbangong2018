@@ -42,9 +42,9 @@ Page({
     imgHoverIndex: 0
   },
   //事件处理函数
-  bindViewTap: function(){
+  workTap: function(){
     wx.navigateTo({
-      url: '../search/searchbar',
+      url: '../main/main',
     })
   },
   notif: function(){

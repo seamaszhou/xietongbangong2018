@@ -5,6 +5,7 @@
     "pages/main/main",
     "pages/search/searchbar",
     "pages/notification/notif"
+    
   ],
   "window": {
     "navigationBarTitleText": "",

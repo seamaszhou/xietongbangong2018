@@ -35,8 +35,8 @@
          <view class="weui-flex">
           
     <view bindtap="box" class="box" >
-      <view disable-scroll="true" wx:for="{{content}}" bindtouchmove="move" bindtouchstart="movestart" bindtouchend="moveend" data-index="{{item.id}}" data-main="{{mainx}}" class="main {{mainx == item.id? 'mainmove':'mainend'}}" style="left:{{start.x}}px; top:{{start.y}}px;border-radius: 5px;box-shadow:-0.1px 0.6px 1px 0.7px #34495e;">
-      <text class='Gname'>{{item.content}} \n</text>
+      <view disable-scroll="true" wx:for="{{content}}" bindtouchmove="move" bindtouchstart="movestart" bindtouchend="moveend" data-index="{{item.id}}" data-main="{{mainx}}" class="main {{mainx == item.id? 'mainmove':'mainend'}}" style="left:{{start.x}}px; top:{{start.y}}px;border-radius: 5px;box-shadow:-0.1px 0.6px 1px 0.7px #34495e;"bindtap='workTap'>
+      <text class='Gname' >{{item.content}} \n</text>
        
       <text class='desctext'>{{item.desc}}</text>
      
