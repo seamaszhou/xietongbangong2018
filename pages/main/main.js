@@ -1,14 +1,20 @@
+var sliderWidth = 96;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    tabs:["信息沉淀","任务分工"],
+    activeIndex:0,
+    sliderOffset:0,
+    sliderLeft:0,
     input:'',
     todos:[],
     leftCount:0,
     allCompleted:false,
-    logs:[]
+    logs:[],
+    showSearch:false
   },
 
   save:function(){
@@ -32,13 +38,36 @@ Page({
       this.setData({logs: logs})
     }
   },
-  onLoad: function (options) {this.load()
+  
+  tabClick:function(e){
+    this.setData({
+      sliderOffset:e.currentTarget.offsetLeft,
+      activeIndex:e.currentTarget.id
+    });
+  },
+  onLoad: function (options) {this.load();
+    var that = this;
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          sliderLeft: (res.windowWidth / that.data.tabs.length - sliderWidth) / 2,
+          sldierOffset: res.windowWidth / that.data.tabs.length * that.data.activeIndex
+        });
+      }
+    });
     
   },
   inputChangeHandle: function(e){
     this.setData({input : e.detail.value})
   },
- 
+  returnIndex: function(){
+    wx.navigateTo({
+      url: '../index/index',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  },
   addTodoHandle: function(e){
     if(!this.data.input || !this.data.input.trim())return
     var todos = this.data.todos
@@ -119,6 +148,16 @@ Page({
     })
     this.setData({ todos: remains, logs: logs })
     this.save()
+  },
+  showSearchbtn:function(){
+    this.setData({
+      showSearch:true
+    })
+  },
+  hideSearchbtn:function(){
+    this.setData({
+      showSearch:false
+    })
   }
 
   

@@ -1,8 +1,35 @@
-<view class="container2">
-  <view class="header">
-    <image class="plus" src="../../images/add.png"></image>
+<view class="page">
+
+<!--顶部栏-->
+<view class="weui-flex-1">
+            <view class="weui-flex__item"><image src='../../images/return.png' class='search'bindtap='returnIndex'></image></view>
+            <view class="weui-flex__item"></view>
+            <view><view class="weui-flex__item"><image src='../../images/search.png' class='search' bindtap='showSearchBtn'></image></view></view>
+    
+             <view><view class="weui-flex__item"><image src='../../images/other.png' class='icons'></image></view></view>
+        </view> 
+<!--顶部栏end-->
+    <view class="page__bd">
+        <view class="weui-tab">
+            <view class="weui-navbar">
+                <block wx:for="{{tabs}}" wx:key="*this">
+                    <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+                        <view class="weui-navbar__title">{{item}}</view>
+                    </view>
+                </block>
+                <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+            </view>
+            <view class="weui-tab__panel">
+                <view class="weui-tab__content" hidden="{{activeIndex != 0}}"><view class="container2">
+<view class="search-mask" bindtap="hideSearchbtn" catchtouchmove="preventTouchMove" wx:if="{{showSearch}}"></view>
+<image class="plus" src="../../images/add.png" bindtap='showSearchbtn'></image>
+  <view class="header" wx:if="{{showSearch}}">
+    
+    
     <input class="new-todo" value="{{ input }}" placeholder="Anything here..." auto-focus bindinput="inputChangeHandle" bindconfirm="addTodoHandle"/>
-  </view>
+    </view>
+    
+  
   <block wx:if="{{ todos.length }}">
     <view class="todos">
       <!-- List items should get the class `completed` when marked as completed -->
@@ -17,3 +44,13 @@
   </block>
 
 </view>
+</view>
+                <view class="weui-tab__content" hidden="{{activeIndex != 1}}">任务分工列表（Coming soon)</view>
+                
+            </view>
+        </view>
+    </view>
+</view>
+
+
+
