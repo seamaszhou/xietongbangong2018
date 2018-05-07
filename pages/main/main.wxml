@@ -26,7 +26,7 @@
   <view class="header" wx:if="{{showSearch}}">
     
     
-    <input class="new-todo" value="{{ input }}" placeholder="Anything here..." auto-focus bindinput="inputChangeHandle" bindconfirm="addTodoHandle"/>
+    <input class="new-todo" value="{{ input }}" placeholder="新建任务" auto-focus bindinput="inputChangeHandle" bindconfirm="addTodoHandle"/>
     </view>
     
   

@@ -1,12 +1,19 @@
 //index.js
 //获取应用实例
+
 const app = getApp()
 var ns = 0;
 var x, y, x1, y1, x2, y2, index, currindex, n, yy;
-var arr1 = [{ desc: '群组描述', content: "Group Name", id: 1 }, { desc: '群组描述2', content: 'Group Name', id: 2 }, { desc: '群组描述3', content: 'Group Name', id: 3 }];
+var arr1 = [{ desc: '此处会显示最新的日程事项', content: "Group Name", id: 1 }];
 
 Page({
   data: {
+    /*添加群组*/
+    input: '',
+    groups: [],
+    leftCount: 0,
+    allCompleted: false,
+    logs: [],
     /*search*/
     inputShowed : false,
     inputValue:"",
@@ -15,7 +22,7 @@ Page({
     showModal: false,
     /*drag*/
     mainx: 0,
-    content: [{ desc: '群组描述', content: 'Group Name', id: 1 }, { desc: '群组描述2', content: 'Group Name', id: 2 }, { desc: '群组描述3', content: 'Group Name', id: 3 }],
+    content: [{ desc: '此处会显示最新的日程事项', content: 'Group Name', id: 1 }],
     start: { x: 0, y: 0 },
     /*drag*/
     time: (new Date()).toString(),
@@ -87,6 +94,7 @@ Page({
         }
       })
     }
+    this.load()
   },
   getUserInfo: function (e) {
     console.log(e)
@@ -231,7 +239,65 @@ Page({
     this.setData({
       inputVal: e.detail.value
     });
-  }
+  },
+  /*添加群组*/
+
+  save: function () {
+    wx.setStorageSync('group_list', this.data.groups)
+    wx.setStorageSync('todo_logs', this.data.logs)
+  },
+
+  load: function () {
+    var groups = wx.getStorageSync('group_list')
+    if (groups) {
+      var leftCount = groups.filter(function (item) {
+        return !item.completed
+      }).length
+      this.setData({ groups: groups, leftCount: leftCount })
+    }
+    var logs = wx.getStorageSync('todo_logs')
+    if (logs) {
+      this.setData({ logs: logs })
+    }
+  },
+
+  
+
+  inputChangeHandle: function (e) {
+    this.setData({ input: e.detail.value })
+  },
+
+  addTodoHandle: function (e) {
+    if (!this.data.input || !this.data.input.trim()) return
+    var groups = this.data.groups
+    groups.push({ group: this.data.input, completed: false })
+    var logs = this.data.logs
+    logs.push({ timestamp: new Date(), action: 'Add', group: this.data.input })
+    this.setData({
+      input: '',
+      groups: groups,
+      leftCount: this.data.leftCount + 1,
+      logs: logs
+    })
+    this.save()
+  },
+
+
+
+  removeTodoHandle: function (e) {
+    var index = e.currentTarget.dataset.index
+    var groups = this.data.groups
+    var remove = groups.splice(index, 1)[0]
+    var logs = this.data.logs
+    logs.push({ timestamp: new Date(), action: 'Remove', group: remove.group})
+    this.setData({
+      groups: groups,
+      leftCount: this.data.leftCount - (remove.completed ? 0 : 1),
+      logs: logs
+    })
+    this.save()
+  },
+
 
   
 
